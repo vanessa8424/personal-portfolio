@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservation - La Tavola Italiana</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG-20251226-WA0076.jpg');
+      background-size: cover;
+      background-position: center;
+     
+      font-family: sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG-20251226-WA0000.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   
+     .nav {
+      color: #f00;
+      font-size: larger;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
+      position: fixed;
+      z-index: 4;
+    }
+
+   
+
+    .logo {
+      color: #ffc738;
+      font-size: 44px;
+      font-weight: bold;
+      font-family: French Script MT;
+    }
+   
+   
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    a{
+        color: #ffffff;
+      text-decoration: none;
+    }
+   
+    .nav-links a {
+      color: #CBA135;
+      text-decoration: none;
+    }
+   
+    .nav-links a:hover {
+      color: #fac336;
+    }
+   
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+   
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #CBA135;
+      margin: 5px 0;
+    }
+
+  
+    .reservation-container {
+      background-color: rgba(245, 245, 245, 0.7);
+      max-width: 50%;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #8b0000;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    input, select, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fffaf0;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #8b0000;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #a40000;
+    }
+
+    
+        .sub-footer {
+      background-color: #222;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .sub-footer-top {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sub-footer-top img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .sub-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .sub-footer-section {
+      flex: 1 1 250px;
+    }
+
+    .sub-footer-section h4 {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+    }
+
+    .sub-footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sub-footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .sub-footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .sub-footer-section ul li a:hover {
+      color: #fff;
+    }
+
+    .sub-footer-section p {
+      margin: 8px 0;
+      color: #ccc;
+    }
+
+    
+    footer{
+      background-color: #222;
+      color: #fff;
+            text-align: center;
+     border-top:1px solid #555;
+     padding: 20px 0px;
+    }
+
+
+
+    @media (max-width: 768px) {
+
+            .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        
+      }
+     
+      .nav-links.active {
+        transform: translateX(0);
+      }
+     
+      .hamburger {
+        display: block;
+        z-index: 4;
+        
+      }
+
+
+      .sub-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sub-footer-section {
+        margin-bottom: 20px;
+      }
+
+
+
+
+
+
+
+
+         .reservation-container {
+      
+      max-width: 70%;
+      
+    }
+
+  }
+  </style>
+</head>
+<body>
+
+  
+    
+    <nav class="nav">
+      <div class="logo">Casa Tavola Italiana</div>
+      <div class="nav-links">
+         <a href="#">Home</a>
+        <a href="#">About</a>
+         <a href="#">Menu</a>
+        <a href="#" style="font-weight:bold; color: #eeba35">Reservation</a>
+         <a href="#">Contact</a>
+        <a href="#">Gallery</a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+  <div class="reservation-container">
+    <h2>Book a Table</h2>
+    <form action="confirmation.html">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="date" required />
+      <input type="time" required />
+      <select required>
+        <option value="">Number of Guests</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>5+</option>
+      </select>
+      <textarea placeholder="Special Requests" rows="4"></textarea>
+      <button type="submit">Reserve Now</button>
+    </form>
+  </div>
+
+  
+  <div class="sub-footer">
+    <!-- Top Logo & Text -->
+    <div class="sub-footer-top">
+      <img src="logo.png" alt="Logo">
+      <p>Casa Tavola Italiana — Authentic Italian Dining Experience</p>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="sub-footer-bottom">
+      <!-- Quick Links -->
+      <div class="sub-footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Reservation</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Address Info -->
+      <div class="sub-footer-section">
+        <h4>Our Address</h4>
+        <p>123 Roma Street</p>
+        <p>New York, NY 10001</p>
+         <p>Phone: +1 (555) 123-4567</p>
+        <p>Email: contact@casatavolaitaliana.com</p>
+      </div>
+    </div>
+  </div>
+<footer>&copy Casa Tavola Italiana. All Rights Reserved</footer>
+  <script>
+        const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+     
+      if (hamburger.classList.contains('active')) {
+        hamburger.innerHTML = '×';
+      } else {
+        hamburger.innerHTML = `
+          <span></span>
+          <span></span>
+          <span></span>
+        `;
+      }
+    });
+    </script>
+
+</body>
+</html>
