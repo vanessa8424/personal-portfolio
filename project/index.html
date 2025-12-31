@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Tavola Italiana</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+   
+    body {
+      font-family: Arial, sans-serif;
+      background:linear-gradient(135deg,#00bfff, #bceeff, #4ad2ff,  #bceeff, #4ad2ff, #00bfff) ;}
+   
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('IMG-20251128-WA0033.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      
+      align-items: center;
+    }
+   
+     .nav {
+      color: #f00;
+      font-size: larger;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
+      position: fixed;
+      z-index: 4;
+    }
+
+   
+    .logo {
+      color: #ffc738;
+      font-size: 44px;
+      font-weight: bold;
+      font-family: French Script MT;
+    }
+   
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+   
+    .nav-links a {
+      color: #CBA135;
+      text-decoration: none;
+    }
+   
+    .nav-links a:hover {
+      color: #fdc12a;
+    }
+   
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+   
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #CBA135;
+      margin: 5px 0;
+    }
+   
+    .hero-content {
+      margin-left: 80px;
+      color: #fff;
+      
+    }
+   
+    .hero-content h1 {
+      font-size: 58px;
+      margin-bottom: 20px;
+      max-width:80%;
+    }
+   
+    .hero-content p {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+   
+    .btn {
+      background: #ffb700;
+      color: #000000;
+      border: none;
+      padding: 10px 16px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover{
+      background: #ffd261;
+    }
+
+    .about-section {
+        margin-top: 150px;
+      padding: 60px 20px;
+    }
+   
+    .about-content {
+        
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+   
+    .about-image {
+      width: 350px;
+      height: 350px;
+      margin: 0 auto;
+      position: absolute;
+      top: -175px;
+      left: 50%;
+      transform: translateX(-50%);
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    }
+   
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+   
+    .about-text {
+      border: 1px solid #ddd;
+      padding: 200px 20px 20px;
+      text-align: center;
+       
+    }
+   
+    .about-text h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+
+ 
+.image-column{
+flex-basis:40%;
+padding:20px;
+
+}
+
+.image-column img{
+width:100%;
+height:auto;
+border-radius:10%;
+}
+
+.text-column{
+flex-basis:60%;
+padding:20px;
+}
+
+.text-column p{
+font-size:16px;
+line-height:1.5;
+color:#333;
+
+}
+
+.box{
+display:flex;
+flex-direction:row;
+justify-content:space-between;
+}
+
+
+.boxe1:hover{
+transform:scale(0.7);
+transition:0.3s ease;
+}
+
+h2{
+font-size:35px;
+margin:20px;
+}
+
+.box1{
+font-family:Arial;
+
+background-size:cover;
+background-position:center;
+width:15em;
+height:20em;
+color:white;
+text-align:center;
+padding:8px;
+padding-bottom:20px;
+text-decoration:none;
+margin:8px;
+}
+
+
+
+.box1 p{
+font-size:18px;
+
+}
+
+
+
+
+
+
+
+.box{
+display:flex;
+flex-direction:row;
+justify-content:space-between;
+}
+
+
+.box2:hover{
+transform:scale(1.1);
+transition:0.3s ease;
+}
+
+
+
+.box2{
+font-family:Arial;
+background-size:cover;
+background-position:center;
+width:400px;
+height:150px;
+color:white;
+text-align:center;
+padding:18px;
+padding-bottom:40px;
+text-decoration:none;
+margin:20px;
+}
+
+
+
+
+     h2 {
+      color:#02008b;
+      margin-bottom: 40px;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .menu-info {
+      padding: 15px;
+    }
+
+    .menu-info h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .price {
+      color: #8b0000;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+
+ 
+    .testimonial-section {
+      position: relative;
+      max-width: 500px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .testimonial-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      margin-bottom: 40px;
+    }
+
+    .testimonial {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: white;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .testimonial img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .testimonial h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .testimonial p {
+      font-size: 15px;
+      color: #555;
+    }
+
+       .test {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .test-btn {
+      
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: rgb(0, 4, 255);
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 20px;
+      pointer-events: auto;
+      border-radius: 50%;
+    }
+
+    .prev-btn {
+      left: -40px;
+    }
+
+    .next-btn {
+      right: -40px;
+    }
+
+    .book-table-section {
+      margin-top: 100px;
+      position: relative;
+    }
+   
+    .book-table-image {
+      width: 100%;
+      height: 400px;
+    }
+   
+    .book-table-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+   
+    .book-table-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ffb700;
+      color: #000000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .book-table-btn:hover{
+      background-color: #f5d37f;
+    }
+
+    .sub-footer {
+      background-color: #232510;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .stars{
+      color: gold;
+    }
+
+    .sub-footer-top {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sub-footer-top img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .sub-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .sub-footer-section {
+      flex: 1 1 250px;
+    }
+
+    .sub-footer-section h4 {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+    }
+
+    .sub-footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sub-footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .sub-footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .sub-footer-section ul li a:hover {
+      color: #fff;
+    }
+
+    .sub-footer-section p {
+      margin: 8px 0;
+      color: #ccc;
+    }
+
+
+    footer{
+      background-color: #959956;
+      color: #fff;
+            text-align: center;
+     border-top:1px solid #555;
+     padding: 20px 0px;
+    }
+   .contact-content {
+   margin-bottom: 100px;
+    max-width: 1100px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: auto;
+    }
+
+    .contact-form, .contact-info {
+       
+      flex: 1 1 300px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .contact-form button {
+      padding: 12px 20px;
+      background-color: #ffb700;
+      color: #000000;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #ffe7a9;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-info strong {
+      display: block;
+      margin-top: 15px;
+    }
+
+   
+
+
+    @media (max-width: 768px) {
+
+        .image-column img{
+width:100%;
+height:auto;
+border-radius:10%;
+}
+
+
+       .contact-content {
+        flex-direction: column;
+      }
+
+
+
+.image-column, text-column{
+flex-basis:100%;
+}
+
+
+
+
+
+
+
+
+           .hero-content {
+      margin-left: 30px;
+      color: #fff;
+      margin-top: 160px;
+    }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        
+      }
+     
+      .nav-links.active {
+        transform: translateX(0);
+      }
+     
+      .hamburger {
+        display: block;
+        z-index: 4;
+        
+      }
+      .abouht-content {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+     
+      .abhout-image {
+        position: static;
+        transform: none;
+        margin: 0;
+      }
+     
+      .abjout-text {
+        text-align: left;
+        padding: 20px;
+      }
+
+      .sub-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sub-footer-section {
+        margin-bottom: 20px;
+      }
+
+
+
+
+
+
+
+
+
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <nav class="nav">
+      <div class="logo">Golden Palm Retreat</div>
+      <div class="nav-links">
+         <a href="#">Home</a>
+        <a href="#about">About</a>
+         <a href="#rooms">Roooms</a>
+        <a href="#gallery">Gallery</a>
+         <a href="#testimony">Testimony</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <h1>Welcome to Golden Palm Retreat</h1>
+      <p>Your Luxury Escape by the Sea</p>
+      <button class="btn">Explore Rooms</button>
+    </div>
+  </section>
+
+  <section class="about-section" >
+    <div class="about-content">
+      <div class="about-image">
+        <img src="IMG-20251128-WA0029.jpg" id="about" alt="About image">
+      </div>
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>Nestled along the stunning coast of New York, Golden Palm Retreat offers unmatched comfort, elegant rooms, and unforgettable service. Whether you're visiting for business or relaxation, we make every stay a memory.</p>
+      </div>
+    </div>
+  </section>
+<section class="rooms" id="rooms">
+<h2>Rooms</h2>
+<div class="box"  id="rooms">
+<div class="box1" style="background-image:linear-gradient(hsla(360, 100%, 0%, 0.25),hsla(360, 50%, 0%, 0.25)), url('IMG-20251128-WA0000.jpg')">
+<h3>
+Room 1: Deluxe Suite</h3>
+
+<p>
+A spacious suite with ocean view, king-size bed, private balcony, and en-suite bathroom. </p>
+<h3>$13/night</h3>
+
+<button class="btn">Book Now</button>
+</div>
+
+<div class="box1" style="background-image:linear-gradient(hsla(10, 100%, 30%, 0.1),hsla(10, 50%, 50%, 0.2)), url('IMG-20251128-WA0002.jpg')">
+<h3>
+Room 2: Executive Room</h3>
+
+<p>
+ Cozy and modern with a queen bed, workspace, and garden view. </p>
+<h3>$9/night</h3>
+
+<button class="btn">Book Now</button>
+</div>
+
+<div class="box1" style="background-image: linear-gradient(hsla(10, 100%, 0%, 0.1),hsla(10, 50%, 0%, 0.2)), url('IMG-20251128-WA0004.jpg')">
+<h3>
+Room 3: Family Room</h3>
+<p>
+Perfect for families with two double beds, kids' area, and complimentary breakfast. </p>
+
+<h3>$14/night</h3>
+
+<button class="btn">Book Now</button>
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="gallery">
+<h2  id="gallery">Gallery</h2>
+<div class="box">
+<div class="box2" style="background-image:url('IMG-20251128-WA0006.jpg')">
+</div>
+
+<div class="box2" style="background-image:url('IMG-20251128-WA0024.jpg')">
+
+</div>
+
+<div class="box2" style="background-image: url('IMG-20251128-WA0004.jpg')">
+</div>
+
+</div>
+
+
+
+
+<div class="box">
+<div class="box2" style="background-image:url('IMG-20251128-WA0027.jpg')">
+</div>
+
+<div class="box2" style="background-image:url('IMG-20251128-WA0002.jpg')">
+
+</div>
+
+<div class="box2" style="background-image: url('IMG-20251128-WA0003.jpg')">
+
+</div>
+
+</div>
+
+
+
+
+<div class="box">
+<div class="box2" style="background-image:url('IMG-20251128-WA0000.jpg')">
+
+</div>
+
+<div class="box2" style="background-image:url('IMG-20251128-WA0032.jpg')">
+</div>
+
+<div class="box2" style="background-image:url('IMG-20251128-WA0030.jpg')">
+</div>
+
+</div>
+
+</section>
+
+  <section class="testimonial-section" id="testimony">
+    <h2 style="text-align: center;">WHAT OUR CUSTUMERS ARE SAYING</h2><br>
+  
+    <div class="testimonial-container" id="testimonialContainer">
+      <div class="testimonial">
+        <img src="IMG-20251218-WA0004.jpg" alt="Client 1">
+        <div class="stars">★★★★★</div>
+        <h3>Emily R., Los Angeles</h3>
+        <p>"Golden Palm Retreat was pure paradise! The rooms were top-notch, and waking up to ocean veiws was a dream."</p>
+      </div>
+      <div class="testimonial">
+        <img src="IMG-20251218-WA0001.jpg" alt="Client 2">
+        <div class="stars">★★★★★</div>
+        <h3>James T.,London.</h3>
+        <p>"The perfect escape from the city. Beautiful spa, relaxing spa and the staff made useful like royalty, Can't wait to return."</p>
+      </div>
+      <div class="testimonial">
+        <img src="IMG-20241010-WA0007.jpg" alt="Client 3">
+        <div class="stars">★★★★★</div>
+        <h3>Derek & Lily., Toranto</h3>
+        <p>"We Celebrated our honeymoon here, and it exceeded every expectations. Romantic, private and absolutely unforgatable."</p>
+      </div>
+ 
+      <div class="testimonial">
+        <img src="IMG-20251214-WA0019.jpg" alt="Client 3">
+        <div class="stars">★★★★☆</div>
+        <h3>Amy L., Los Angeles</h3>
+        <p>"Awesome service. Nice veiw of the sea."</p>
+      </div>
+    </div>
+<div class="test">
+    <button class="test-btn prev-btn" onclick="prevTestimonial()">‹</button>
+     <button class="test-btn next-btn" onclick="nextTestimonial()">›</button>
+    </div>
+    </section>
+
+    <div class="contact-content" id="contact">
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form>
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p><strong>Address:</strong> 123 Roma Street, New York, NY 10001</p>
+        <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+        <p><strong>Email:</strong> contact@casatavolaitaliana.com</p>
+
+        <strong>Operating Hours:</strong>
+        <p>Mon - Fri: 11:00 AM – 10:00 PM</p>
+        <p>Sat - Sun: 12:00 PM – 11:00 PM</p>
+      </div>
+    </div>
+  </div>
+
+<section class="book-table-section">
+    <div class="book-table-image">
+      <img src="IMG-20251128-WA0027.jpg" alt="Book a table image">
+    </div>
+    <button class="book-table-btn">Book A Room</button>
+  </section>
+
+
+
+  <div class="sub-footer">
+    <!-- Top Logo & Text -->
+    <div class="sub-footer-top">
+      <img src="logo.png" alt="Logo">
+      <p>Golden Palm Retreat — Luxury Escape By The Sea</p>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="sub-footer-bottom">
+      <!-- Quick Links -->
+      <div class="sub-footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Rooms</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Testimony</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Address Info -->
+      <div class="sub-footer-section">
+        <h4>Our Address</h4>
+        <p>123 Roma Street</p>
+        <p>New York, NY 10001</p>
+         <p>Phone: +1 (555) 123-4567</p>
+        <p>Email: contact@goldenpalmretreat.com</p>
+      </div>
+    </div>
+  </div>
+<footer>&copy Golden Palm Retreat. All Rights Reserved</footer>
+
+
+  <script>
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+     
+      if (hamburger.classList.contains('active')) {
+        hamburger.innerHTML = '×';
+      } else {
+        hamburger.innerHTML = `
+          <span></span>
+          <span></span>
+          <span></span>
+        `;
+      }
+    });
+    const container = document.getElementById('testimonialContainer');
+    const testimonials = document.querySelectorAll('.testimonial');
+    let index = 0;
+
+    function showTestimonial(i) {
+      index = (i + testimonials.length) % testimonials.length;
+      container.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextTestimonial() {
+      showTestimonial(index + 1);
+    }
+
+    function prevTestimonial() {
+      showTestimonial(index - 1);
+    }
+
+    // Optional: auto-slide every 4s
+     setInterval(nextTestimonial, 5000);
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
