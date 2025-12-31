@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Tavola Italiana</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+   
+    body {
+      font-family: Arial, sans-serif;
+    }
+   
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('IMG-20251226-WA0000.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   
+     .nav {
+      color: #f00;
+      font-size: larger;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
+      position: fixed;
+      z-index: 4;
+    }
+
+   
+    .logo {
+      color: #ffc738;
+      font-size: 44px;
+      font-weight: bold;
+      font-family: French Script MT;
+    }
+   
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+   
+    .nav-links a {
+      color: #CBA135;
+      text-decoration: none;
+    }
+   
+    .nav-links a:hover {
+      color: #fdc12a;
+    }
+   
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+   
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #CBA135;
+      margin: 5px 0;
+    }
+   
+    .hero-content {
+      margin-left: 40px;
+      color: #fff;
+    }
+   
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+   
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+   
+    .btn {
+      background: #8b0000;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover{
+      background: #c11;
+    }
+
+    .about-section {
+      padding: 60px 20px;
+    }
+   
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+   
+    .about-image {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+      position: absolute;
+      top: -75px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+   
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+   
+    .about-text {
+      border: 1px solid #ddd;
+      padding: 80px 20px 20px;
+      text-align: center;
+    }
+   
+    .about-text h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .menu-container {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+
+    }
+     h2 {
+      color:#8B0000;
+      margin-bottom: 40px;
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .menu-info {
+      padding: 15px;
+    }
+
+    .menu-info h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .price {
+      color: #8b0000;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+
+ 
+    .testimonial-section {
+      position: relative;
+      max-width: 500px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .testimonial-container {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      margin-bottom: 40px;
+    }
+
+    .testimonial {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: white;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .testimonial img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .testimonial h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .testimonial p {
+      font-size: 15px;
+      color: #555;
+    }
+
+       .test {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .test-btn {
+      
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: #f00;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 20px;
+      pointer-events: auto;
+      border-radius: 50%;
+    }
+
+    .prev-btn {
+      left: -40px;
+    }
+
+    .next-btn {
+      right: -40px;
+    }
+
+    .book-table-section {
+      position: relative;
+    }
+   
+    .book-table-image {
+      width: 100%;
+      height: 400px;
+    }
+   
+    .book-table-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+   
+    .book-table-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #8b0000;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .book-table-btn:hover{
+      background-color: #cc1111;
+    }
+
+    .sub-footer {
+      background-color: #222;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .sub-footer-top {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sub-footer-top img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .sub-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .sub-footer-section {
+      flex: 1 1 250px;
+    }
+
+    .sub-footer-section h4 {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+    }
+
+    .sub-footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sub-footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .sub-footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .sub-footer-section ul li a:hover {
+      color: #fff;
+    }
+
+    .sub-footer-section p {
+      margin: 8px 0;
+      color: #ccc;
+    }
+
+
+    footer{
+      background-color: #222;
+      color: #fff;
+            text-align: center;
+     border-top:1px solid #555;
+     padding: 20px 0px;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        
+      }
+     
+      .nav-links.active {
+        transform: translateX(0);
+      }
+     
+      .hamburger {
+        display: block;
+        z-index: 4;
+        
+      }
+      .abouht-content {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+     
+      .abhout-image {
+        position: static;
+        transform: none;
+        margin: 0;
+      }
+     
+      .abjout-text {
+        text-align: left;
+        padding: 20px;
+      }
+
+      .sub-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sub-footer-section {
+        margin-bottom: 20px;
+      }
+
+
+
+
+
+
+
+
+
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <nav class="nav">
+      <div class="logo">Casa Tavola Italiana</div>
+      <div class="nav-links">
+         <a href="#" style="color: #ffb700; font-weight: bold;">Home</a>
+        <a href="#">About</a>
+         <a href="#">Menu</a>
+        <a href="#">Reservation</a>
+         <a href="#">Contact</a>
+        <a href="#">Gallery</a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <h1>Experience Authentic Italian Cuisine</h1>
+      <p>Handmade pasta, wood-fired pizzas, and a warm atmosphere</p>
+      <button class="btn">Book A Table</button>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="IMG-20251226-WA0000.jpg" alt="About image">
+      </div>
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>At Casa Tavola Italiana, we bring the flavors of Italy to your table with authentic recipes, warm hospitality, and an atmosphere that feels like home.</p>
+      </div>
+    </div>
+  </section>
+<div class="menu-container">
+  <h2>Our Menu</h2>
+    <div class="menu-grid">
+      <!-- Example Menu Item -->
+      <div class="menu-item appetizers">
+        <img src="IMG-20251226-WA0027.jpg" alt="Bruschetta">
+        <div class="menu-info">
+          <h3>Bruschetta</h3>
+<div class="price">8.00</div>
+          <p>Grilled bread with garlic, tomatoes, olive oil, and basil.</p>
+        </div>
+      </div>
+
+      <div class="menu-item pizza">
+        <img src="IMG-20251226-WA0018.jpg" alt="Margherita Pizza">
+        <div class="menu-info">
+          <h3>Margherita Pizza</h3>
+          <div class="price">12.00</div>
+          <p>Classic pizza with fresh mozzarella, tomatoes, and basil.</p>
+        </div>
+      </div>
+
+ 
+      <div class="menu-item desserts">
+        <img src="IMG-20251226-WA0036.jpg" alt="Tiramisu">
+        <div class="menu-info">
+          <h3>Tiramisu</h3>
+          <div class="price">$7.00</div>
+          <p>Classic Italian coffee-flavored dessert.</p>
+
+          </div>
+          </div>
+          <a href="#">Check out our menu→</a>
+          </div>
+          </div>
+          
+
+  <section class="testimonial-section">
+    <h2 style="text-align: center;">WHAT OUR CUSTUMERS ARE SAYING</h2><br>
+  
+    <div class="testimonial-container" id="testimonialContainer">
+      <div class="testimonial">
+        <img src="IMG-20251218-WA0004.jpg" alt="Client 1">
+        <h3>Emily R.</h3>
+        <p>"Absolutely loved the ambiance and the food. A perfect evening!"</p>
+      </div>
+      <div class="testimonial">
+        <img src="IMG-20251218-WA0001.jpg" alt="Client 2">
+        <h3>Michael B.</h3>
+        <p>"The service was top-notch and the pasta was to die for."</p>
+      </div>
+      <div class="testimonial">
+        <img src="IMG-20241010-WA0007.jpg" alt="Client 3">
+        <h3>Sophia L.</h3>
+        <p>"The staff made us feel like family, and every dish was made with such love and care. Highly recommend the seafood risotto!"</p>
+      </div>
+      <div class="testimonial">
+        <img src="IMG-20251214-WA0019.jpg" alt="Client 1">
+        <h3>Julia R.</h3>
+        <p>"Absolutely loved the ambiance and the food. A perfect evening!"</p>
+      </div>
+      <div class="testimonial">
+        <img src="IMG-20251214-WA0018.jpg" alt="Client 2">
+        <h3>Lucia J.</h3>
+        <p>"From the ambience to the wine section, everything was spot on. You can tell the chefs are passionate about traditional Italian cuisine."</p>
+      </div>
+      <div class="testimonial">
+        <img src="IMG-20251214-WA0019.jpg" alt="Client 3">
+        <h3>Amy L.</h3>
+        <p>"Awesome service. Good food."</p>
+      </div>
+    </div>
+<div class="test">
+    <button class="test-btn prev-btn" onclick="prevTestimonial()">‹</button>
+     <button class="test-btn next-btn" onclick="nextTestimonial()">›</button>
+    </div>
+    </section>
+
+
+<section class="book-table-section">
+    <div class="book-table-image">
+      <img src="IMG-20251226-WA0002.jpg" alt="Book a table image">
+    </div>
+    <button class="book-table-btn">Book A Table</button>
+  </section>
+
+
+
+  <div class="sub-footer">
+    <!-- Top Logo & Text -->
+    <div class="sub-footer-top">
+      <img src="logo.png" alt="Logo">
+      <p>Casa Tavola Italiana — Authentic Italian Dining Experience</p>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="sub-footer-bottom">
+      <!-- Quick Links -->
+      <div class="sub-footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Reservation</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Address Info -->
+      <div class="sub-footer-section">
+        <h4>Our Address</h4>
+        <p>123 Roma Street</p>
+        <p>New York, NY 10001</p>
+         <p>Phone: +1 (555) 123-4567</p>
+        <p>Email: contact@casatavolaitaliana.com</p>
+      </div>
+    </div>
+  </div>
+<footer>&copy Casa Tavola Italiana. All Rights Reserved</footer>
+
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+     
+      if (hamburger.classList.contains('active')) {
+        hamburger.innerHTML = '×';
+      } else {
+        hamburger.innerHTML = `
+          <span></span>
+          <span></span>
+          <span></span>
+        `;
+      }
+    });
+    const container = document.getElementById('testimonialContainer');
+    const testimonials = document.querySelectorAll('.testimonial');
+    let index = 0;
+
+    function showTestimonial(i) {
+      index = (i + testimonials.length) % testimonials.length;
+      container.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextTestimonial() {
+      showTestimonial(index + 1);
+    }
+
+    function prevTestimonial() {
+      showTestimonial(index - 1);
+    }
+
+    // Optional: auto-slide every 4s
+     setInterval(nextTestimonial, 5000);
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
