@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - La Tavola Italiana</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+
+      background: #f9f9f9;
+    }
+
+       
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('IMG-20251226-WA0053.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   
+     .nav {
+      color: #f00;
+      font-size: larger;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
+      position: fixed;
+      z-index: 4;
+    }
+
+   
+    .logo {
+      color: #CBA135;
+      font-size: 24px;
+      font-weight: bold;
+    }
+   
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+   
+    .nav-links a {
+      color: #CBA135;
+      text-decoration: none;
+    }
+   
+    .nav-links a:hover {
+      color: #fdc536;
+    }
+   
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+   
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #CBA135;
+      margin: 5px 0;
+    }
+   
+    .hero-content {
+      margin-top: 200px;
+      color: #fff;
+      text-align: center;
+
+    }
+   
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+   
+    .btn {
+      background-color: #8B0000;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+       .btn:hover {
+      background-color: #db2626;
+      
+    }
+
+
+    .about-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 900px;
+      margin: auto;
+            line-height: 1.6;
+      padding: 20px;
+    }
+
+    .about-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .about-block.reverse {
+      direction: rtl;
+    }
+
+    .about-block.reverse .about-text {
+      direction: ltr;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .about-text {
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .about-text h2 {
+      margin-bottom: 10px;
+      color: #b02e2e;
+    }
+    .aboutowner-section {
+      padding: 60px 20px;
+      margin-top: 250px;
+    }
+   
+       
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+       gap: 40px;
+        
+    }
+   
+    .about-image {
+              position: static;
+        transform: none;
+        margin: 0;
+        
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      position: absolute;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+   
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      
+    }
+   
+    .aboutowner-text {
+      border: 1px solid #ddd;
+      padding: 80px 20px 20px;
+      line-height: 1.6;
+              text-align: left;
+        padding: 30px;
+      }
+    
+   
+    .aboutowner-text h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      margin-top: 150px;
+      text-align: center;
+      
+      color:#8B0000;
+    }
+
+
+   
+   .carousel-container {
+      perspective: 1000px;
+      width: 90%;
+      margin: auto;
+      max-width: 800px;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease;
+      margin-bottom: 50px;
+    }
+
+    .carousel img {
+      width: 200px;
+      height: 300px;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.5s, z-index 0.5s;
+      transform: scale(0.9);
+      opacity: 0.5;
+    }
+
+    .carousel img.active {
+      transform: scale(1.2);
+      z-index: 10;
+      opacity: 1;
+    }
+
+    .sub-footer {
+      background-color: #222;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .sub-footer-top {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sub-footer-top img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .sub-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .sub-footer-section {
+      flex: 1 1 250px;
+    }
+
+    .sub-footer-section h4 {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+    }
+
+    .sub-footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sub-footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .sub-footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .sub-footer-section ul li a:hover {
+      color: #fff;
+    }
+
+    .sub-footer-section p {
+      margin: 8px 0;
+      color: #ccc;
+    }
+
+
+
+    footer{
+      background-color: #222;
+      color: #fff;
+            text-align: center;
+     border-top:1px solid #555;
+     padding: 20px 0px;
+    }
+
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        
+      }
+     
+      .nav-links.active {
+        transform: translateX(0);
+      }
+     
+      .hamburger {
+        display: block;
+        z-index: 4;
+        
+      }
+      .about-block, .about-block.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+      .sub-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sub-footer-section {
+        margin-bottom: 20px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <nav class="nav">
+      <div class="logo">Casa Tavola Italiana</div>
+      <div class="nav-links">
+         <a href="project1/">Home</a>
+        <a href="project1/about.html" style="color:#fdc32e; font-weight: bold;">About</a>
+         <a href="project1/menu.html">Menu</a>
+        <a href="project1/reservation.html">Reservation</a>
+         <a href="project1/contact.html">Contact</a>
+        <a href="project1/gallery.html">Gallery</a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <h1>Welcome to Casa Tavola Italiana</h1>
+      <p>Authentic Italian Cuisine & Warm Atmosphere</p>
+     <a href="reservation.html"> <button class="btn" >Book A Table</button></a>
+    </div>
+  </section>
+  <section class="about-section">
+
+    <div class="about-block">
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>Welcome to Casa Tavola Italiana, where the authentic taste of Italy meets the vibrant energy of New York. Our family-owned restaurant is dedicated to serving handmade pasta, delicious Italian dishes, and a warm family atmosphere that will make you feel like you're part of the family.</p>
+        <br><p>Welcome to Casa Tavola Italiana, where the authentic taste of Italy meets the vibrant energy of New York. Our family-owned restaurant is dedicated to serving handmade pasta, delicious Italian dishes, and a warm family atmosphere that will make you feel like you're part of the family.</p>
+ 
+      </div>
+      <div class="about-img">
+        <img src="IMG-20251226-WA0001.jpg" alt="Italian restaurant interior">
+      </div>
+    </div>
+
+    <div class="about-block reverse">
+      <div class="about-text">
+        <h2>Fresh Ingredients</h2>
+        <p>We use only fresh, locally-sourced ingredients and traditional recipes to bring Italy to your plate.</p>
+               <br><p>From our signature pasta dishes, made fresh in-house every day, to our wood-fired pizzas, decadent desserts, and extensive wine list, every bite and every sip is a celebration of Italy's rich culinary heritage.</p>
+        <br><p>Our restaurant is more than just a place to eat – it's a gathering place, a community hub, and a home away from home. We're committed to creating a warm and welcoming atmosphere, where friends and family can come together to share a meal, make memories, and enjoy the simple pleasures of life.</p>
+      </div>
+      <div class="about-img">
+        <img src="IMG-20251226-WA0028.jpg" alt="Fresh ingredients">
+      </div>
+    </div>
+
+    <div class="about-block">
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>Casa Tavola Italiana is a labor of love, born out of a passion for Italian cuisine and a desire to share that passion with others. Our head chef, Giovanni, grew up in a small town in Italy, where food was a central part of family life. He learned the art of traditional Italian cooking from his nonna, who taught him the secrets of her famous pasta sauce and homemade bread.</p>
+        <br><p>
+Giovanni brought his love of Italian cuisine to New York, where he worked in some of the city's top restaurants, honing his skills and perfecting his craft. When he opened Casa Tavola Italiana, he was determined to create a restaurant that would bring a taste of Italy to the city, with a focus on authenticity, quality, and warmth.</p>
+<br><p>Today, Casa Tavola Italiana is a beloved institution in the community, known for its delicious food, welcoming atmosphere, and commitment to excellence.</p>
+      </div>
+      <div class="about-img">
+        <img src="IMG_20251226_225417_987.jpg" alt="Chef cooking in kitchen">
+      </div>
+    </div>
+
+  </section>
+
+ <section class="aboutowner-section">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="IMG-20251226-WA0054.jpg" alt="About image">
+      </div>
+      <div class="aboutowner-text">
+        <h2>Meet the Owner</h2>
+        <p>Giovanni Rossi is the owner and head chef of Casa Tavola Italiana. Born and raised in Italy, Giovanni grew up surrounded by the sights, sounds, and flavors of traditional Italian cuisine. He learned to cook from his nonna, who instilled in him a love of good food, good wine, and good company.</p>
+        <br><p>After moving to New York, Giovanni worked in some of the city's top restaurants, including several Italian eateries in Manhattan. He eventually saved up enough to open his own restaurant, Casa Tavola Italiana, which quickly became a sensation in the community.</p>
+        <br><p>When he's not in the kitchen, Giovanni loves to spend time with his family, explore new neighborhoods, and cook up a storm in his own kitchen. He's passionate about sharing his love of Italian cuisine with others and is dedicated to making Casa Tavola Italiana a place where everyone feels welcome.</p>
+        <br><p>Giovanni is a proud member of the Italian-American community and is actively involved in several local charities and organizations. He's a recipient of numerous awards and accolades, including "Best Italian Restaurant" and "Chef of the Year."</p>
+      </div>
+    </div>
+  </section>
+
+<h2 style="text-align: center; margin-bottom: 40px; color:#8B0000;">Meet Our Team</h2>
+<div class="carousel-container">
+<div class="carousel" id="carousel">
+    <img src="IMG-20251226-WA0054.jpg" class="active" />
+    <img src="IMG-20251226-WA0060.jpg" />
+    <img src="IMG-20251226-WA0061.jpg" />
+    <img src="IMG-20251226-WA0062.jpg" />
+    <img src="IMG-20251226-WA0064.jpg" />
+    <img src="IMG-20251226-WA0065.jpg" />
+    <img src="IMG-20251226-WA0066.jpg" />
+    <img src="IMG-20251226-WA0070.jpg" />
+    <img src="IMG-20251226-WA0071.jpg" />
+    <img src="IMG-20251226-WA0074.jpg" />
+    <img src="IMG-20251226-WA0059.jpg" />
+
+
+  </div>
+</div>
+
+
+
+  <div class="sub-footer">
+    <!-- Top Logo & Text -->
+    <div class="sub-footer-top">
+      <img src="logo.png" alt="Logo">
+      <p>Casa Tavola Italiana — Authentic Italian Dining Experience</p>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="sub-footer-bottom">
+      <!-- Quick Links -->
+      <div class="sub-footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li> <a href="project1/">Home</a></li>
+       <li> <a href="project1/about.html" style="color:#fdc32e; font-weight: bold;">About</a></li>
+         <li><a href="project1/menu.html">Menu</a></li>
+        <li><a href="project1/reservation.html">Reservation</a></li>
+         <li><a href="project1/contact.html">Contact</a></li>
+       <li> <a href="project1/gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+
+      <!-- Address Info -->
+      <div class="sub-footer-section">
+        <h4>Our Address</h4>
+        <p>123 Roma Street</p>
+        <p>New York, NY 10001</p>
+         <p>Phone: +1 (555) 123-4567</p>
+        <p>Email: contact@casatavolaitaliana.com</p>
+      </div>
+    </div>
+  </div>
+
+<footer>&copy Casa Tavola Italiana. All Rights Reserved</footer>
+
+<script>
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+     
+      if (hamburger.classList.contains('active')) {
+        hamburger.innerHTML = '×';
+      } else {
+        hamburger.innerHTML = `
+          <span></span>
+          <span></span>
+          <span></span>
+        `;
+      }
+    });
+
+  const carousel = document.getElementById('carousel');
+  const images = carousel.querySelectorAll('img');
+
+  let index = 0;
+
+  function updateCarousel() {
+    images.forEach((img, i) => {
+      img.classList.remove('active');
+    });
+
+    images[index].classList.add('active');
+
+    // Center the active image
+    const offset = index * (220); // image width + gap
+    carousel.style.transform = `translateX(calc(50% - ${offset}px))`;
+  }
+
+  function nextImage() {
+    index = (index + 1) % images.length;
+    updateCarousel();
+  }
+
+  // Auto-slide every 3 seconds
+  setInterval(nextImage, 3000);
+
+  updateCarousel();
+</script>
+
+
+</body>
+</html>
