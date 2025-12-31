@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - La Tavola Italiana</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fefefe;
+    }
+
+       .hero {
+      position: relative;
+      height: 100vh;
+      background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('IMG-20251226-WA0003.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   
+     .nav {
+      color: #f00;
+      font-size: larger;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
+      position: fixed;
+      z-index: 4;
+    }
+
+   
+ 
+    .logo {
+      color: #ffc738;
+      font-size: 44px;
+      font-weight: bold;
+      font-family: French Script MT;
+    }
+   
+   
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+   
+    .nav-links a {
+      color: #CBA135;
+      text-decoration: none;
+    }
+   
+    .nav-links a:hover {
+      color: #eeba35;
+    }
+   
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+   
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #CBA135;
+      margin: 5px 0;
+    }
+   
+    .hero-content {
+      margin-top: 200px;
+      color: #fff;
+      text-align: center;
+
+    }
+   
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .btn{
+            background: #8b0000;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover{
+      background: #a40000;
+    }
+
+    .menu-container {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .filter-buttons button {
+      background: #8b0000;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .filter-buttons button:hover {
+      background: #a40000;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      background: #fff;
+       border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 250px;
+      
+    }
+
+    .menu-info {
+      padding: 15px;
+    }
+
+    .menu-info h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .price {
+      color: #8b0000;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+       .sub-footer {
+      background-color: #222;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .sub-footer-top {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sub-footer-top img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .sub-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .sub-footer-section {
+      flex: 1 1 250px;
+    }
+
+    .sub-footer-section h4 {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #555;
+      padding-bottom: 5px;
+    }
+
+    .sub-footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sub-footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .sub-footer-section ul li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .sub-footer-section ul li a:hover {
+      color: #fff;
+    }
+
+    .sub-footer-section p {
+      margin: 8px 0;
+      color: #ccc;
+    }
+
+    footer{
+      background-color: #222;
+      color: #fff;
+            text-align: center;
+     border-top:1px solid #555;
+     padding: 20px 0px;
+    }
+
+
+
+        @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        background-color: #333;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        
+      }
+     
+      .nav-links.active {
+        transform: translateX(0);
+      }
+     
+      .hamburger {
+        display: block;
+        z-index: 4;
+        
+      }
+      .sub-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sub-footer-section {
+        margin-bottom: 20px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <nav class="nav">
+      <div class="logo">Casa Tavola Italiana</div>
+      <div class="nav-links">
+         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+         <a href="menu.html" style="color:#eeba35; font-weight: bold;">Menu</a>
+        <a href="reservation.html">Reservation</a>
+         <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <h1>Browse Our Menu Below</h1>
+      
+     <a href="reservation.html"> <button class="btn">Book A Table</button></a>
+    </div>
+  </section>
+  <div class="menu-container">
+    <h2>Our Menu</h2>
+
+    <div class="filter-buttons">
+      <button onclick="filterMenu('all')">All</button>
+      <button onclick="filterMenu('appetizers')">Appetizers</button>
+      <button onclick="filterMenu('pasta')">Pasta</button>
+      <button onclick="filterMenu('pizza')">Pizza</button>
+      <button onclick="filterMenu('main')">Main Courses</button>
+      <button onclick="filterMenu('desserts')">Desserts</button>
+      <button onclick="filterMenu('beverages')">Beverages</button>
+        <button onclick="filterMenu('risotto')">Risottos</button>
+    </div>
+
+    <div class="menu-grid">
+      <!-- Example Menu Item -->
+      <div class="menu-item pasta">
+        <img src="IMG-20251226-WA0010.jpg" alt="Fettuccine Alfredo">
+        <div class="menu-info">
+          <h3>Fettuccine Alfredo</h3>
+           <div class="price">$8.00</div>
+          <p> Creamy parmesan sauce with fettuccine noodles.</p>
+        </div>
+      </div>
+
+      <div class="menu-item pasta">
+        <img src="IMG-20251226-WA0012.jpg" alt="Lasagna">
+        <div class="menu-info">
+          <h3>Lasagna</h3>
+          <div class="price">$14.00</div>
+          <p>Layered pasta with meat sauce, cheese, and béchamel.</p>
+        </div>
+      </div>
+
+      <div class="menu-item pasta">
+        <img src="IMG-20251226-WA0014.jpg" alt="Carbonara">
+        <div class="menu-info">
+          <h3>Carbonara</h3>
+          <div class="price">$12.00</div>
+          <p>Creamy egg, parmesan, and bacon sauce with spaghetti.</p>
+        </div>
+      </div>
+
+      <div class="menu-item pasta">
+        <img src="IMG-20251226-WA0015.jpg" alt="Pesto Pasta">
+        <div class="menu-info">
+          <h3>Pesto Pasta</h3>
+          <div class="price">$16.00</div>
+          <p> Fresh basil pesto sauce with pasta and pine nuts.</p>
+        </div>
+      </div>
+
+      <div class="menu-item pasta">
+        <img src="IMG-20251226-WA0016.jpg" alt="Penne Arrabbiata">
+        <div class="menu-info">
+          <h3>Penne Arrabbiata</h3>
+          <div class="price">$7.00</div>
+          <p> Spicy tomato sauce with penne pasta.</p>
+          </div>
+      </div>
+
+      <div class="menu-item pizza">
+        <img src="IMG-20251226-WA0018.jpg" alt="Margherita">
+        <div class="menu-info">
+          <h3>Margherita</h3>
+          <div class="price">$4.00</div>
+          <p> Classic tomato, mozzarella, and basil pizza.</p>
+        </div>
+      </div>
+
+            <div class="menu-item pizza">
+        <img src="IMG-20251226-WA0019.jpg" alt="Pepperoni">
+        <div class="menu-info">
+          <h3>Pepperoni</h3>
+          <div class="price">$16.00</div>
+          <p>Spicy pepperoni and mozzarella pizza.</p>
+        </div>
+      </div>
+
+      <div class="menu-item pizza">
+        <img src="IMG-20251226-WA0020.jpg" alt="Quattro Formaggi (Four Cheese):">
+        <div class="menu-info">
+          <h3>Quattro Formaggi (Four Cheese):</h3>
+          <div class="price">$7.00</div>
+          <p>Blend of four cheeses on a pizza.</p>
+          </div>
+      </div>
+      <div class="menu-item pizza">
+        <img src="IMG-20251226-WA0021.jpg" alt="Prosciutto e Funghi (Ham & Mushroom)">
+        <div class="menu-info">
+          <h3>Prosciutto e Funghi (Ham & Mushroom)</h3>
+          <div class="price">$16.00</div>
+          <p>Ham and mushroom pizza.</p>
+        </div>
+      </div>
+
+      <div class="menu-item pizza">
+        <img src="IMG-20251226-WA0022.jpg" alt="Capricciosa">
+        <div class="menu-info">
+          <h3>Capricciosa</h3>
+          <div class="price">$7.00</div>
+          <p>Ham, mushrooms, olives, and artichokes on a pizza.</p>
+          </div>
+      </div>
+      <div class="menu-item risotto">
+        <img src="IMG-20251226-WA0024.jpg" alt="Risotto alla Milanese (Saffron Risotto)">
+        <div class="menu-info">
+          <h3>Risotto alla Milanese (Saffron Risotto)</h3>
+          <div class="price">$16.00</div>
+          <p>Creamy saffron risotto with ossobuco.</p>
+        </div>
+      </div>
+
+      <div class="menu-item risotto">
+        <img src="IMG-20251226-WA0025.jpg" alt="Risotto ai Funghi (Mushroom Risotto):">
+        <div class="menu-info">
+          <h3>Risotto ai Funghi (Mushroom Risotto):</h3>
+          <div class="price">$7.00</div>
+          <p>Sautéed mushrooms in a creamy risotto.</p>
+          </div>
+      </div>
+      <div class="menu-item risotto">
+        <img src="IMG-20251226-WA0026.jpg" alt="Risotto ai Mare (Seafood Risotto)">
+        <div class="menu-info">
+          <h3>Risotto ai Mare (Seafood Risotto)</h3>
+          <div class="price">$16.00</div>
+          <p>Mixed seafood in a flavorful risotto.</p>
+        </div>
+      </div>
+
+      <div class="menu-item appetizers">
+        <img src="IMG-20251226-WA0027.jpg" alt="Bruschetta">
+        <div class="menu-info">
+          <h3>Bruschetta</h3>
+          <div class="price">$7.00</div>
+          <p>Toasted bread with fresh tomatoes and basil.</p>
+          </div>
+      </div>
+      <div class="menu-item appetizers">
+        <img src="IMG-20251226-WA0028.jpg" alt="Caprese Salad">
+        <div class="menu-info">
+          <h3>Caprese Salad</h3>
+          <div class="price">$16.00</div>
+          <p> Fresh mozzarella, tomato, and basil salad.</p>
+        </div>
+      </div>
+
+      <div class="menu-item appetizers">
+        <img src="IMG-20251226-WA0029.jpg" alt="Grilled Calamari">
+        <div class="menu-info">
+          <h3>Grilled Calamari</h3>
+          <div class="price">$7.00</div>
+          <p>Crispy grilled squid rings with lemon.</p>
+          </div>
+      </div>
+      <div class="menu-item appetizers">
+        <img src="IMG-20251226-WA0030.jpg" alt="Prosciutto e Melone (Ham & Melon)">
+        <div class="menu-info">
+          <h3>Prosciutto e Melone (Ham & Melon)</h3>
+          <div class="price">$4.00</div>
+          <p>Thinly sliced ham with melon.</p>
+        </div>
+      </div>
+
+      <div class="menu-item main">
+        <img src="IMG-20251226-WA0031.jpg" alt="Chicken or Veal Parmigiana">
+        <div class="menu-info">
+          <h3>Chicken Parmigiana</h3>
+          <div class="price">$17.00</div>
+          <p>Breaded and fried with tomato sauce and melted cheese.</p>
+          </div>
+      </div>
+      <div class="menu-item main">
+        <img src="IMG-20251226-WA0032.jpg" alt="Bistecca alla Fiorentina (Tuscan Steak)">
+        <div class="menu-info">
+          <h3>Bistecca alla Fiorentina (Tuscan Steak)</h3>
+          <div class="price">$16.00</div>
+          <p>Grilled T-bone steak with herbs.</p>
+        </div>
+      </div>
+
+      <div class="menu-item main">
+        <img src="IMG-20251226-WA0035.jpg" alt="Pollo alla Cacciatora (Hunter-Style Chicken)">
+        <div class="menu-info">
+          <h3>Pollo alla Cacciatora (Hunter-Style Chicken)</h3>
+          <div class="price">$17.00</div>
+          <p> Chicken cooked with onions, bell peppers, and tomatoes.</p>
+          </div>
+      </div>
+
+
+      <div class="menu-item desserts">
+        <img src="IMG-20251226-WA0036.jpg" alt="Tiramisu">
+        <div class="menu-info">
+          <h3>Tiramisu</h3>
+          <div class="price">$7.00</div>
+          <p>Classic Italian coffee-flavored dessert.</p>
+          </div>
+      </div>
+
+            <div class="menu-item desserts">
+        <img src="IMG-20251226-WA0037.jpg" alt="Gelato">
+        <div class="menu-info">
+          <h3>Gelato</h3>
+          <div class="price">$6.00</div>
+          <p> Italian-style ice cream.</p>
+        </div>
+      </div>
+
+      <div class="menu-item desserts">
+        <img src="IMG-20251226-WA0038.jpg" alt="Panna Cotta">
+        <div class="menu-info">
+          <h3>Panna Cotta</h3>
+          <div class="price">$6.00</div>
+          <p>Creamy dessert topped with fruit sauce.</p>
+        </div>
+      </div>
+
+      <div class="menu-item desserts">
+        <img src="IMG-20251226-WA0039.jpg" alt="Cannoli">
+        <div class="menu-info">
+          <h3>Cannoli</h3>
+          <div class="price">$8.00</div>
+          <p>Fried pastry shells with sweet ricotta cheese filling.</p>
+          </div>
+      </div>
+      <div class="menu-item beverages">
+        <img src="IMG-20251226-WA0041.jpg" alt="Espresso">
+        <div class="menu-info">
+          <h3>Espresso</h3>
+          <div class="price">$6.00</div>
+          <p>Strong and rich Italian coffee.</p>
+        </div>
+      </div>
+
+      <div class="menu-item beverages">
+        <img src="IMG-20251226-WA0042.jpg" alt="Cappuccino">
+        <div class="menu-info">
+          <h3>Cappuccino</h3>
+          <div class="price">$4.00</div>
+          <p> Espresso with steamed milk and foam.</p>
+          </div>
+      </div>
+      <div class="menu-item beverages">
+        <img src="IMG-20251226-WA0046.jpg" alt="Chianti">
+        <div class="menu-info">
+          <h3>Chianti</h3>
+          <div class="price">$16.00</div>
+          <p>Selection of Italian wines.</p>
+        </div>
+      </div>
+
+      <div class="menu-item beverages">
+        <img src="IMG-20251226-WA0048.jpg" alt="Prosecco">
+        <div class="menu-info">
+          <h3>Prosecco</h3>
+          <div class="price">$15.00</div>
+          <p>Selection of Italian wines.</p>
+          </div>
+      </div>
+      <div class="menu-item pasta">
+        <img src="IMG-20251226-WA0050.jpg" alt="Chicken Parmesan">
+        <div class="menu-info">
+          <h3>Spaghetti Bolognese</h3>
+          <div class="price">$6.00</div>
+          <p>Rich meat sauce served with spaghetti.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <div class="sub-footer">
+    <!-- Top Logo & Text -->
+    <div class="sub-footer-top">
+      <img src="logo.png" alt="Logo">
+      <p>Casa Tavola Italiana — Authentic Italian Dining Experience</p>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="sub-footer-bottom">
+      <!-- Quick Links -->
+      <div class="sub-footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li>    <a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+         <li><a href="menu.html" style="color:#eeba35; font-weight: bold;">Menu</a></li>
+        <li><a href="reservation.html">Reservation</a></li>
+         <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+
+      <!-- Address Info -->
+      <div class="sub-footer-section">
+        <h4>Our Address</h4>
+        <p>123 Roma Street</p>
+        <p>New York, NY 10001</p>
+         <p>Phone: +1 (555) 123-4567</p>
+        <p>Email: contact@casatavolaitaliana.com</p>
+      </div>
+    </div>
+  </div>
+
+<footer>&copy Casa Tavola Italiana. All Rights Reserved</footer>
+
+  <script>
+    
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+     
+      if (hamburger.classList.contains('active')) {
+        hamburger.innerHTML = '×';
+      } else {
+        hamburger.innerHTML = `
+          <span></span>
+          <span></span>
+          <span></span>
+        `;
+      }
+    });
+
+
+
+    function filterMenu(category) {
+      const items = document.querySelectorAll('.menu-item');
+      items.forEach(item => {
+        if (category === 'all') {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.toggle('hidden', !item.classList.contains(category));
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
